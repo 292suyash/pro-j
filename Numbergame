@@ -1,0 +1,47 @@
+#personal project number 1 (Guess the number : Reward based game)
+x=0
+import random
+n = random.randint(1,100)
+i=1
+score=50
+check=m=steps=0
+x=int(input("Enter the zeroth guess : "))
+m=x-n
+if m<0:
+    m=m*(-1)
+while (x!=n):
+    x=int(input("Enter the next guess : "))
+    i+=1
+    if x==-0:
+        print("Thank you for playing. Have a nice Day!")
+        break
+    if x==n:
+        score=score*((17/(steps+0.3))-0.5)
+        score=score+30
+        score=round(score,2)
+        print("Congratulation, you got the correct number! Final Score =",score)
+        break
+    if x!=n:
+        check=x-n
+        if check<0:
+            check=check*(-1)
+        if m==check:
+            steps=steps+1
+            print("Nah! Still the same. Score =",score)
+        if m>check:
+            steps=steps+1
+            m=check
+            score=score+3
+            print("Cool move! You came Close. Score =",score)
+        if m<check:
+            steps=steps+1
+            score=score-1
+            print("You missed that one! Sorry. Score =",score)
+    if i>5:
+        r=str(input("Your 5 current moves are over. Want 5 more moves? : "))
+        if (r=="YES" or "yes" or "Yes"):
+            score=score-20
+            i=1
+        elif (r=="NO" or "no" or "-0"):
+            print("Thank you for playing. Have a nice Day!")
+            break
